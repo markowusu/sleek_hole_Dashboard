@@ -23,5 +23,6 @@
 "policy":"By clicking “Continue with Apple/Google/Email/ above, you acknowledge that you have read and understood, and agree to LogIps",
 "email": "Email",
 "enterAValidEmail": "Enter a valid email",
-"emailIsRequired": "Email is required"
+"emailIsRequired": "Email is required",
+"resetPassword": "reset password"
 }
