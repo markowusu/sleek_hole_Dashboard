@@ -24,5 +24,6 @@
 "email": "Email",
 "enterAValidEmail": "Enter a valid email",
 "emailIsRequired": "Email is required",
-"resetPassword": "reset password"
+"resetPassword": "send reset link"
+
 }
