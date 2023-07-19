@@ -1,0 +1,27 @@
+{
+    "$schema": "https://json.schemastore.org/package.json",
+    "name": "adminproject",
+    "version": "0.1.0",
+    "private": true,
+  
+"upgradeToMonth": "Get 1 month free and unlock ",
+"updateToPro": "Upgrade to Pro",
+"upgradeButton": "Upgrade",
+"members": "Members",
+"download": "Download",
+"dashboard": "Dashboard",
+"login": "Log in",
+"helpAndInformation": "Help & Information",
+"helloUser": "Hello, Margaret",
+"messageTracker": "Track team progress here. You almost reach your goal",
+"enterYourEmailAddress": "Enter your email address",
+"enterYourPassword": "Enter your password",
+"continueWithEmail": "Continue with email", 
+"forgotPassword": "Forgot password?",   
+"privacyPolicy": "Privacy Policy",
+"termsAndConditions": "Terms and Conditions",
+"policy":"By clicking “Continue with Apple/Google/Email/ above, you acknowledge that you have read and understood, and agree to LogIps",
+"email": "Email",
+"enterAValidEmail": "Enter a valid email",
+"emailIsRequired": "Email is required"
+}

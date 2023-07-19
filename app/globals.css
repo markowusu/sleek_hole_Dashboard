@@ -18,10 +18,48 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #fff
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sidebar-wrapper {
+  width: 250px;
+  height: 100vh;
+  background-color: white;
+  color: darkblue;
+  border-width: 2px;
+  text-align: center;
+  transition: all .3s ease-in-out;
+ 
+}
+
+.item {
+  width: 95%;
+  padding: 10px 0;
+  margin-top: 10px;
+  padding-left: 12px;
+  background-color: rgb(4, 4, 69);
+  cursor: pointer;
+  text-align: left;
+  border-radius: 20px;
+}
+
+@layer utilities {
+  @variants responsive {
+    /* Hide scrollbar for Chrome, Safari, and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+
+    /* Hide scrollbar for IE, Edge, and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
 }
