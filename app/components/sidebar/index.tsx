@@ -63,8 +63,6 @@ const menuItems = [
 
 function Sidebar({right}:any) {
   const [collapse, setCollapse] = useState(false);
-
-    
   return (
     <nav
       className={classNames("flex flex-col top-0 w-64 h-screen border-2 overflow-hidden  border-[#F8F7F8]",{"left-0": !right, "right-0": right})}>

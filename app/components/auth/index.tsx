@@ -1,6 +1,7 @@
 'use client'
 import LoginHeader from "./loginHeader";
 import Input from "../input";
+import Image from "next/image";
 import CardButton from "../cardButton";
 import i18n from "../../../public/translation/i18n.json";
 import {useFormik} from "formik";
@@ -8,7 +9,7 @@ import {emailValidationSchema} from "../../utils/validationSchemas/";
 import { useState } from "react";
 import classNames from "classnames";
 import LinkText from "../textLink"
-
+import route from "../../../public/routes/route.json"
 
 function LoginCard() {
 
@@ -35,8 +36,26 @@ function LoginCard() {
           <div className="max-w-[340px] ">
             <div className="flex flex-col items-center justify-center w-full ">
             <div className="flex flex-col items-center justify-center w-full space-y-4 align-middle">
-              <CardButton text="Continue with Google" cls="w-full" />
-              <CardButton text="Continue with Apple" cls="w-full"/>
+              <CardButton text="Continue with Google" cls="w-full" >
+              <Image
+              src={route.googlelogo}
+              alt="Vercel Logo"
+              className="text-black"
+              width={15}
+              height={18}
+              priority
+            />
+              </CardButton>
+              <CardButton text="Continue with Apple" cls="w-full">
+              <Image
+              src={route.applelogo}
+              alt="Vercel Logo"
+              className="flex-shrink-0 text-black"
+              width={18}
+              height={18}
+              priority
+            />
+                </CardButton>
             </div>
             
             <div className="mt-10"></div>
@@ -49,7 +68,7 @@ function LoginCard() {
                 <div className="w-full mb-4">
                   <Input
                     type={i18n.email}
-                    name="Email"
+                    name={i18n.email}
                     onChange={formik.handleChange}
                     description={i18n.enterYourEmailAddress}
                     value={formik.values.email}
@@ -63,6 +82,7 @@ function LoginCard() {
                 cls="bg-red-100 border-red-400 hover:bg-red-200 w-full"
                 onClick={formik.handleSubmit}
               />
+                
                 : <CardButton
                   text={i18n.continueWithEmail}
                   cls="bg-red-100 border-red-400 hover:bg-red-200 w-full"
