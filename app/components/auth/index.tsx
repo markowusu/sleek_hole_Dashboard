@@ -4,10 +4,17 @@ import Input from "../input";
 import CardButton from "../cardButton";
 import i18n from "../../../public/translation/i18n.json";
 import {useFormik} from "formik";
-import {emailValidationSchema} from "../../utils/validationSchemas/"
+import {emailValidationSchema} from "../../utils/validationSchemas/";
+import { useState } from "react";
+import classNames from "classnames";
 
 function LoginCard() {
 
+  const [forgotPassword, setFortPassword] = useState(false)
+  
+  const OnForgotPassword = ()=>{
+    setFortPassword(!forgotPassword);
+  };
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -35,8 +42,8 @@ function LoginCard() {
               <div className="  w-full h-[1px]  border-b-[1px] border-gray-200"></div>
             </div>
 
-            <div className="flex flex-col items-center justify-start mt-6 ">
-              <form className="flex flex-col items-center justify-center" onSubmit={formik.handleSubmit}>
+            <div className="flex flex-col items-center justify-start w-full mt-6 ">
+              <form className="flex flex-col items-center justify-center w-full" onSubmit={formik.handleSubmit}>
                 <div className="w-full mb-4">
                   <Input
                     type={i18n.email}
@@ -48,14 +55,24 @@ function LoginCard() {
                     errorMessage ={formik.errors.email}
                   />
                 </div>
-                <CardButton
+               {
+                forgotPassword ?  <CardButton
+                text={i18n.forgotPassword}
+                cls="bg-red-100 border-red-400 hover:bg-red-200 w-full"
+                onClick={formik.handleSubmit}
+              />
+                : <CardButton
                   text={i18n.continueWithEmail}
                   cls="bg-red-100 border-red-400 hover:bg-red-200 w-full"
                   onClick={formik.handleSubmit}
                 />
+                }
               </form>
-              <div className="text-center mx-[8px] my-[12px]  text-base font-normal text-[#A6a6a6]">
-                <a className="underline">{i18n.forgotPassword}</a>
+              <div className={classNames("text-center mx-[8px] my-[12px]  text-base font-normal text-[#A6a6a6]")}>
+                {
+                forgotPassword ? <a className="underline" onClick={OnForgotPassword}>{i18n.continueWithEmail}</a>
+                 : <a className="underline" onClick={OnForgotPassword}>{i18n.forgotPassword}</a>
+               }
               </div>
             </div>
             </div>
