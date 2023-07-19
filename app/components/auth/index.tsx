@@ -7,6 +7,8 @@ import {useFormik} from "formik";
 import {emailValidationSchema} from "../../utils/validationSchemas/";
 import { useState } from "react";
 import classNames from "classnames";
+import LinkText from "../textLink"
+
 
 function LoginCard() {
 
@@ -70,8 +72,8 @@ function LoginCard() {
               </form>
               <div className={classNames("text-center mx-[8px] my-[12px]  text-base font-normal text-[#A6a6a6]")}>
                 {
-                forgotPassword ? <a className="underline" onClick={OnForgotPassword}>{i18n.continueWithEmail}</a>
-                 : <a className="underline" onClick={OnForgotPassword}>{i18n.forgotPassword}</a>
+                forgotPassword ? <LinkText onClick={OnForgotPassword} text= {i18n.continueWithEmail}/>
+                 : <LinkText onClick={OnForgotPassword} text={i18n.forgotPassword}/>
                }
               </div>
             </div>
@@ -79,8 +81,8 @@ function LoginCard() {
           </div>
           <div className="w-[340px] mt-[60px] text-center text-sm font-thin text-[#A6a6a6] ">
             <p> {i18n.policy}{" "}
-              <a className="underline">{i18n.termsAndConditions}</a> and {" "}
-              <a className="underline">{i18n.privacyPolicy}</a>
+              <LinkText text={i18n.termsAndConditions}/> and {" "}
+              <LinkText text={i18n.privacyPolicy} />
             </p>
           </div>
         </div>
