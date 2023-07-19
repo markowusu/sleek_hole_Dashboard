@@ -1,8 +1,23 @@
+'use client'
 import LoginHeader from "./loginHeader";
 import Input from "../input";
 import CardButton from "../cardButton";
 import i18n from "../../../public/translation/i18n.json";
+import {useFormik} from "formik";
+import {emailValidationSchema} from "../../utils/validationSchemas/"
+
 function LoginCard() {
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+    },
+    validationSchema: emailValidationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+  
   return (
     <div className="flex items-center justify-center min-h-screen text-black bg-white">
       <div className="w-full max-w-sm bg-white rounded-lg ">
@@ -21,14 +36,15 @@ function LoginCard() {
             </div>
 
             <div className="flex flex-col items-center justify-start mt-6 ">
-              <form className="flex flex-col items-center justify-center">
+              <form className="flex flex-col items-center justify-center" onSubmit={formik.handleSubmit}>
                 <div className="w-full mb-4">
                   <Input
                     type={i18n.email}
                     name="Email"
+                    onChange={formik.handleChange}
                     description={i18n.enterYourEmailAddress}
-                    value=""
-
+                    value={formik.values.email}
+                    errorMessage ={formik.errors.email}
                   />
                 </div>
                 <CardButton
