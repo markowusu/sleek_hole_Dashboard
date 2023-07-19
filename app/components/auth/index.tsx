@@ -44,12 +44,14 @@ function LoginCard() {
                     onChange={formik.handleChange}
                     description={i18n.enterYourEmailAddress}
                     value={formik.values.email}
+                    onBlur={formik.handleBlur}
                     errorMessage ={formik.errors.email}
                   />
                 </div>
                 <CardButton
                   text={i18n.continueWithEmail}
                   cls="bg-red-100 border-red-400 hover:bg-red-200 w-full"
+                  onClick={formik.handleSubmit}
                 />
               </form>
               <div className="text-center mx-[8px] my-[12px]  text-base font-normal text-[#A6a6a6]">
