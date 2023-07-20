@@ -10,7 +10,7 @@ function Input({type,value,onChange,onBlur,description,cls,name,errorMessage}:{t
         <input type={type} id="email" name="email" className={`w-full px-3 py-1 text-gray-700 border rounded-md ${cls}`} placeholder={description} value={value} onChange={onChange} onBlur={onBlur}/>
         <p className="my-2 font-sans text-base font-normal text-red-500 ">
             {errorMessage}
-            </p>
+        </p>
         </>
     );
 }

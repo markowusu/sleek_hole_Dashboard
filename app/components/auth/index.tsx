@@ -79,13 +79,13 @@ function LoginCard() {
                {
                 forgotPassword ?  <CardButton
                 text={i18n.forgotPassword}
-                cls="bg-red-100 border-red-400 hover:bg-red-200 w-full"
+                cls="bg-red-100 border-red-400 w-full hover:bg-red-300"
                 onClick={formik.handleSubmit}
               />
                 
                 : <CardButton
                   text={i18n.continueWithEmail}
-                  cls="bg-red-100 border-red-400 hover:bg-red-200 w-full"
+                  cls="bg-red-100 border-red-400 hover:bg-red-300 w-full"
                   onClick={formik.handleSubmit}
                 />
                 }
