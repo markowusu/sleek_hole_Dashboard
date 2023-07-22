@@ -10,21 +10,32 @@ import { useState } from "react";
 import classNames from "classnames";
 import LinkText from "../textLink"
 import route from "../../../public/routes/route.json"
-
+import Context from "@/app/utils/helper/classes/loginContext";
+import ForgotPassword from "@/app/utils/helper/ImplLoginStates/forgotPassword";
+import ContinueWithEmail from "@/app/utils/helper/ImplLoginStates/continueWithEmail";
+import { useEffect } from "react";
 function LoginCard() {
 
-  const [forgotPassword, setFortPassword] = useState(false)
-  
+  const [forgotPassword, setFortPassword] = useState(false);
+  let context = new Context(new ContinueWithEmail());
+   
+  if (forgotPassword){
+    context.transition();
+  }
   const OnForgotPassword = ()=>{
     setFortPassword(!forgotPassword);
   };
+
+  const OnContinueWithEmail =()=>{
+    setFortPassword(!forgotPassword);
+  }
   const formik = useFormik({
     initialValues: {
       email: "",
     },
     validationSchema: emailValidationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      context.execute(values);
     },
   });
   
@@ -76,25 +87,14 @@ function LoginCard() {
                     errorMessage ={formik.errors.email}
                   />
                 </div>
-               {
-                forgotPassword ?  <CardButton
-                text={i18n.forgotPassword}
-                cls="bg-red-100 border-red-400 w-full hover:bg-red-300"
-                onClick={formik.handleSubmit}
-              />
-                
-                : <CardButton
-                  text={i18n.continueWithEmail}
+                 <CardButton
+                  text={ forgotPassword ? i18n.forgotPassword :i18n.continueWithEmail}
                   cls="bg-red-100 border-red-400 hover:bg-red-300 w-full"
                   onClick={formik.handleSubmit}
                 />
-                }
               </form>
               <div className={classNames("text-center mx-[8px] my-[12px]  text-base font-normal text-[#A6a6a6]")}>
-                {
-                forgotPassword ? <LinkText onClick={OnForgotPassword} text= {i18n.continueWithEmail}/>
-                 : <LinkText onClick={OnForgotPassword} text={i18n.forgotPassword}/>
-               }
+              <LinkText onClick={ forgotPassword ? OnContinueWithEmail : OnForgotPassword} text= { forgotPassword ? i18n.continueWithEmail : i18n.forgotPassword} /> 
               </div>
             </div>
             </div>
