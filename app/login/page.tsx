@@ -1,9 +1,10 @@
 import LoginCard from '../components/auth';
+import Layout from "../components/layout";
 export default function Login(){
     return(
-        <div className='h-full'>
+        <Layout cls="h-full" header={true}>
              <LoginCard/>
-        </div>
+        </Layout>
        
     );
 }

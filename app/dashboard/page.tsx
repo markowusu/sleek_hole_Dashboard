@@ -1,7 +1,7 @@
-import Layout from "../components/adminLayout";
+import Layout from "../components/layout";
 import Body from "../components/body";
 import Sidebar from "../components/sidebar";
-import RightNav from "../components/RightNav";
+import RightNav from "../components/rightNav";
 import OpenTable from "../components/openTable";
 import {ChartHeader, ChartCard } from "../components/chart";
 import TaskElement from "../components/taskList/taskElement";
@@ -10,8 +10,8 @@ import {ChatHeader, ChatProfile, ChatCard} from "../components/chat"
 function Admin(){
     return(
         
-        <Layout>
-        <Sidebar/>
+        <Layout cls="flex">
+          <Sidebar/>
             <Body>
                 <OpenTable/>
                 <ChartCard>
