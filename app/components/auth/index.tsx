@@ -11,9 +11,8 @@ import classNames from "classnames";
 import LinkText from "../textLink"
 import route from "../../../public/routes/route.json"
 import Context from "@/app/utils/helper/classes/loginContext";
-import ForgotPassword from "@/app/utils/helper/ImplLoginStates/forgotPassword";
 import ContinueWithEmail from "@/app/utils/helper/ImplLoginStates/continueWithEmail";
-import { useEffect } from "react";
+
 function LoginCard() {
 
   const [forgotPassword, setFortPassword] = useState(false);
